@@ -75,8 +75,8 @@
             <div class="col-md-12 d-flex align-items-center">
                 <span class="mb-3 mb-md-0 text-muted">© Todos os direitos reservados {{ date('Y') }}</span>
                 &nbsp;
-                <a href="https://thomasmelo.com.br" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                 - Thomas Melo  
+                <a href="https://github.com/eltonbueno" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                 - Elton Bueno  
                 </a>
             </div>
         </footer>
