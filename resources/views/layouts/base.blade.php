@@ -26,45 +26,49 @@
     </style>   
 </head>
 <body>
-    <div class="container">
-        {{-- MENU --}}        
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    Fluxo de Caixa
-                    - {{ Auth::user()->nome }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavFluxo"
-                    aria-controls="navbarNavFluxo" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavFluxo">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="#">
-                           <i class="bi bi-house-door-fill"></i>
-                           Home
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-piggy-bank-fill"></i>
-                            Lancamentos
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-basket-fill"></i>
-                            Centro de Custo
-                        </a>                        
-                        <a class="nav-link" href="{{ route('tipo.index') }}">
-                            <i class="bi bi-arrow-down-up"></i>
-                            Tipos
-                        </a>                        
-                        <a class="nav-link" href="{{ route('logout') }}">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Sair
-                        </a>
+    <div class="menu">
+               {{-- MENU --}}        
+               <nav class="navbar navbar-expand-lg bg-light" id="menu">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        Fluxo de Caixa
+                        - {{ Auth::user()->nome }}
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavFluxo"
+                        aria-controls="navbarNavFluxo" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavFluxo">
+                        <div class="navbar-nav ms-5">
+                            <a class="nav-link" href="#">
+                               <i class="bi bi-house-door-fill"></i>
+                               Home
+                            </a>
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-piggy-bank-fill"></i>
+                                Lancamentos
+                            </a>
+                            <a class="nav-link" href="{{ route('centro.index') }}">
+                                <i class="bi bi-basket-fill"></i>
+                                Centro de Custo
+                            </a>                        
+                            <a class="nav-link" href="{{ route('tipo.index') }}">
+                                <i class="bi bi-arrow-down-up"></i>
+                                Tipos
+                            </a>                        
+                            <a class="nav-link" href="{{ route('logout') }}">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sair
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>        
-        {{-- /MENU --}}
+            </nav>        
+            {{-- /MENU --}}
+    </div>
+ 
+    <div class="container mt-5">
+ 
 
         {{-- CONTEÚDO --}}
         <div class="row mt-2 mb-4">

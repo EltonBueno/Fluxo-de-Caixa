@@ -56,7 +56,7 @@ Route::prefix('tipo')
         route::get('/editar/{id}', 'edit')->name('tipo.edit');
         route::get('/mostrar/{id}', 'show')->name('tipo.show');
         route::post('/cadastrar', 'store')->name('tipo.store');
-        route::post('/atualizar', 'update')->name('tipo.update');
+        route::post('/atualizar/{id}', 'update')->name('tipo.update');
         route::post('/deletar', 'destroy')->name('tipo.destroy');
     });
 /*
@@ -75,8 +75,8 @@ Route::prefix('centro-de-custo')
         route::get('/editar/{id}', 'edit')->name('centro.edit');
         route::get('/mostrar/{id}', 'show')->name('centro.show');
         route::post('/cadastrar', 'store')->name('centro.store');
-        route::post('/atualizar', 'update')->name('centro.update');
-        route::post('/deletar', 'destroy')->name('centro.destroy');
+        route::post('/atualizar/{id}', 'update')->name('centro.update');
+        route::post('/deletar/{id}', 'destroy')->name('centro.destroy');
     });
 /*
 |--------------------------------------------------------------------------
