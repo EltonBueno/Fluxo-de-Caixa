@@ -30,8 +30,8 @@
                 <td>{{$lancamento->centroCusto->tipo->tipo}}</td>
                 <td>{{$lancamento->centroCusto->centro_custo}}</td>
                 <td>{{$lancamento->descricao}}</td>
-                <td>{{$lancamento->created_at}}</td>
-                <td>{{$lancamento->update_at}}</td>
+                <td>{{$lancamento->created_at->format('d/m/Y')}}</td>
+                <td>{{$lancamento->updated_at->format('d/m/Y')}}</td>
             </tr>
             @endforeach
         </tbody>
