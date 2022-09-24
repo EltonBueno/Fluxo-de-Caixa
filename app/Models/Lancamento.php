@@ -16,8 +16,15 @@ class Lancamento extends Model
 
     protected $table = 'lancamentos';
     protected $PrimaryKey = 'id_lancamento';
-    protected $dates = ['created_at', 'update_at', 'delete_at', 'dt_faturamento'];
-    protected $fillabe = ['id_user','id_centro_custo','descricao','observacoes'];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at', 'dt_faturamento'];
+  
+    protected $fillable = ['id_user',
+                        'id_centro_custo',
+                        'dt_faturamento',
+                        'descricao',
+                        'observacoes',
+                        'valor'
+                       ];
 
 
     /*
@@ -29,7 +36,7 @@ class Lancamento extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'id_user', 'id_user');
+        return $this->hasOne(User::class, 'id_user', 'id_user');
     }
 
     public function centroCusto()
