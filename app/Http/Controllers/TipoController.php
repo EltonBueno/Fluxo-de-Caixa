@@ -14,8 +14,8 @@ class TipoController extends Controller
      */
     public function index()
     {
-        $tipos = Tipo::OrderBy('tipo');
-        return View('tipo.index')
+        $tipos = Tipo::orderBy('tipo');
+        return view('tipo.index')
                 ->with(compact('tipos'));
     }
 
@@ -45,7 +45,7 @@ class TipoController extends Controller
 
         return redirect()
                 ->route('tipo.index')
-                ->with('success', 'Cadastrado com sucesso!');
+                ->with('success',' Cadastrado com sucesso!');
     }
 
     /**
@@ -71,7 +71,7 @@ class TipoController extends Controller
     {
         $tipo = Tipo::find($id);
         return view('tipo.form')
-               ->with(compact('tipo'));
+                ->with(compact('tipo'));
 
     }
 
@@ -85,14 +85,12 @@ class TipoController extends Controller
     public function update(Request $request, int $id)
     {
         $tipo = Tipo::find($id);
-
         $tipo->fill($request->all());
         $tipo->save();
 
         return redirect()
                 ->route('tipo.index')
-                ->with('success', 'Atualizado com sucesso!');
-
+                ->with('success',' Atualizado com sucesso!');
     }
 
     /**
@@ -103,13 +101,11 @@ class TipoController extends Controller
      */
     public function destroy(int $id)
     {
-        $tipo = Tipo::find($id);
-
-        $tipo->fill($id);
+        $tipo = Tipo::find($id);        
         $tipo->delete();
 
         return redirect()
                 ->route('tipo.index')
-                ->with('danger', 'Deletado com sucesso!');
+                ->with('danger',' Excluído com sucesso!');
     }
 }

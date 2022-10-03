@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{CentroCusto, centro, Tipo};
+use App\Models\{CentroCusto, Tipo};
 
 class CentroCustoController extends Controller
 {
-   /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        $centros = CentroCusto::OrderBy('centro_custo');
-        return View('centro.index')
+        $centros = CentroCusto::orderBy('centro_custo')->get();
+        return view('centro.index')
                 ->with(compact('centros'));
     }
 
@@ -27,9 +23,9 @@ class CentroCustoController extends Controller
     public function create()
     {
         $centro = null;
-        $tipos = Tipo::orderBy('tipo')->get();
+        $tipos  = Tipo::orderBy('tipo')->get();
         return view('centro.form')
-                ->with(compact('centro', 'tipos'));
+                ->with(compact('centro','tipos'));
     }
 
     /**
@@ -46,13 +42,13 @@ class CentroCustoController extends Controller
 
         return redirect()
                 ->route('centro.index')
-                ->with('success', 'Cadastrado com sucesso!');
+                ->with('success',' Cadastrado com sucesso!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\centro  $centro
+     * @param  \App\Models\CentroCusto  $centro
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
@@ -65,52 +61,49 @@ class CentroCustoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\centro  $centro
+     * @param  \App\Models\CentroCusto  $centro
      * @return \Illuminate\Http\Response
      */
     public function edit(int $id)
     {
         $centro = CentroCusto::find($id);
-        $tipos = Tipo::orderBy('tipo')->get();
+        $tipos  = Tipo::orderBy('tipo')->get();
         return view('centro.form')
-                ->with(compact('centro', 'tipos'));
+                ->with(compact('centro','tipos'));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\centro  $centro
+     * @param  \App\Models\CentroCusto  $centro
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, int $id)
     {
         $centro = CentroCusto::find($id);
-
         $centro->fill($request->all());
         $centro->save();
 
         return redirect()
                 ->route('centro.index')
-                ->with('success', 'Atualizado com sucesso!');
-
+                ->with('success',' Atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\centro  $centro
+     * @param  \App\Models\CentroCusto  $centro
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)
     {
-        $centro = CentroCusto::find($id);
-
-        $centro->fill($id);
+        $centro = CentroCusto::find($id);        
         $centro->delete();
 
         return redirect()
                 ->route('centro.index')
-                ->with('danger', 'Deletado com sucesso!');
-    }
+                ->with('danger',' Excluído com sucesso!');
+    } 
 }

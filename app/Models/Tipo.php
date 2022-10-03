@@ -12,7 +12,11 @@ class Tipo extends Model
 
     protected $table = 'tipos';
     protected $primaryKey = 'id_tipo';
-    protected $dates = ['created_at', 'update_at', 'delete_at']; 
+    protected $dates = [
+                        'created_at',
+                        'updated_at',
+                        'deleted_at'
+                        ];
     protected $fillable = ['tipo'];
 
 }

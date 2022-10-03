@@ -8,13 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-// Models
+# Models
 use App\Models\Lancamento;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     protected $primaryKey = 'id_user';
 
     /**
@@ -47,17 +47,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /*
-    |------------------------------------------------------
-    | Relacionamentos
-    |https://laravel.com/docs/9.x/eloquent-relationships#main-content
-    |------------------------------------------------------
-    */
+     |----------------------------------------
+     | Relacionamentos
+     | https://laravel.com/docs/9.x/eloquent-relationships#main-content
+     |----------------------------------------
+     */
 
-    public function Lancamentos()
-    {
-        return $this->belongsTo(Lancamento::class, 'id_user', 'id_user')->orberBy('dt_faturamento');
-    }
+     public function lancamentos()
+     {
+        return $this->belongsTo(Lancamento::class,'id_user','id_user')
+                     ->orderBy('dt_faturamento');
+     }
 
 }
